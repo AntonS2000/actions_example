@@ -22,15 +22,19 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+
     - name: intsall python3-setuptools
       run: sudo apt-get install python3-setuptools
-    
-    - name: install pytest
-      run: sudo apt install python3-pytest
 
     - name: install requirements
       run: pip3 install -r requirements.txt
     
     - name: run tests
-      run: pytest test.py
+      uses: fylein/python-pytest-github-action@v2
+      with:
+        args: pytest test.py
 
