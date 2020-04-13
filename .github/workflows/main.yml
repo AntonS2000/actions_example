@@ -26,7 +26,7 @@ jobs:
       run: sudo apt-get install python3-setuptools
     
     - name: install pytest
-      run: pip3 install -U pytest
+      run: sudo apt install python3-pytest
 
     - name: install requirements
       run: pip3 install -r requirements.txt
